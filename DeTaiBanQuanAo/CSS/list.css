@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+.fly-cart-icon {
+  position: fixed;
+  z-index: 9999;
+  font-size: 22px;
+  pointer-events: none;
+  transition:
+    transform 1.5s ease,
+    opacity 1.5s ease;
+  color: #111;
+}
+
+.cart-pop {
+  animation: cartPop 0.2s ease;
+}
+
+@keyframes cartPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.categories-slider-section .row.g-4 {
+  align-items: flex-start;
+}
+
+.categories-box {
+  padding: 16px !important;
+}
+
+.categories-box .category-item {
+  margin-bottom: 6px !important;
+}
+
+.categories-box .category-item a {
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.categories-box .category-title {
+  font-size: 18px;
+  margin-bottom: 12px !important;
+}
+
+.categories-box .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.product-item {
+  display: flex;
+}
+
+.product-item .thumbnail.card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item .thumbnail.card > a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item .thumbnail.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-item .caption {
+  flex: 1;
+  padding: 12px 12px 6px !important;
+}
+
+.product-item .proName {
+  font-weight: 600;
+  line-height: 1.3;
+  min-height: 2.6em;
+  overflow: hidden;
+}
+
+.product-item .proList {
+  min-height: 1.4em;
+  overflow: hidden;
+}
+
+.product-item .proPrice {
+  min-height: 1.6em;
+}
+
+.product-item .thumbnail.card .px-3.pb-3 {
+  margin-top: auto;
+}
+
+.category-item a.active-cat {
+  font-weight: 700;
+  color: #000 !important;
+}
+
+.product-thumb-wrap {
+  position: relative;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e00000;
+  color: #fff;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.proPrice .price-new {
+  color: #e00000;
+  font-weight: 800;
+}
+
+.proPrice .price-old {
+  color: #8b8b8b;
+  text-decoration: line-through;
+  margin-left: 8px;
+  font-size: 13px;
+}

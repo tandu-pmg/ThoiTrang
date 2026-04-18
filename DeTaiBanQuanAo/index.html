@@ -1,0 +1,862 @@
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fashion Store - Thời Trang Cao Cấp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../DeTaiBanQuanAo/CSS/index.css" />
+    <link rel="stylesheet" href="../DeTaiBanQuanAo/CSS/style.css" />
+    <script src="../DeTaiBanQuanAo/JS/auth.js"></script>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark py-4 sticky-top shadow"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand fw-bold brand-logo d-flex align-items-center gap-2"
+          href="index.html"
+          style="height: 54px"
+        >
+          <img
+            src="../DeTaiBanQuanAo/IMG/logo.jpg"
+            alt="Fashion Store Logo"
+            style="
+              width: 42px;
+              height: 42px;
+              border-radius: 10px;
+              object-fit: cover;
+            "
+          />
+          <span>Fashion Store</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active px-3"
+                aria-current="page"
+                href="index.html"
+                >Trang Chủ</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link px-3"
+                href="../DeTaiBanQuanAo/HTML/introduction.html"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link px-3"
+                href="../DeTaiBanQuanAo/HTML/collection.html"
+                >Bộ Sưu Tập</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="#lienhe">Liên Hệ</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle px-3"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Thêm
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=phu-kien-khac"
+                    >Phụ Kiện</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../DeTaiBanQuanAo/HTML/promotion.html"
+                    >Khuyến Mãi</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../DeTaiBanQuanAo/HTML/news.html"
+                    >Tin Tức</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="d-flex gap-2 align-items-center text-white">
+            <form
+              class="d-flex ms-2"
+              role="search"
+              onsubmit="return searchProducts(event);"
+            >
+              <a
+                href="../DeTaiBanQuanAo/HTML/list.html"
+                class="btn btn-dark rounded-pill"
+              >
+                <i class="bx bx-search"></i>
+              </a>
+            </form>
+            <a
+              id="user-link"
+              href="#"
+              class="text-white text-decoration-none"
+              title="Tài khoản"
+              data-bs-toggle="modal"
+              data-bs-target="#authModal"
+            >
+              <i class="bx bx-user"></i>
+            </a>
+            <a
+              id="hello-link"
+              href="#"
+              class="text-white text-decoration-none small d-none"
+              data-bs-toggle="modal"
+              data-bs-target="#authModal"
+              title="Tài khoản"
+            >
+              Xin chào, <strong id="hello-name"></strong>
+            </a>
+            <a
+              href="../DeTaiBanQuanAo/HTML/cart.html"
+              class="text-white text-decoration-none position-relative"
+              title="Giỏ hàng"
+            >
+              <i id="nav-cart-icon" class="bx bx-cart"></i>
+              <span
+                id="nav-cart-count"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge"
+                >0</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="py-5 text-center bg-light">
+      <div class="container py-5">
+        <p class="hero-subtitle text-uppercase text-muted mb-3">
+          Trải nghiệm thời trang chưa từng có
+        </p>
+        <h1 class="hero-title fw-bold display-4 mb-4">
+          Nâng Tầm Phong Cách Cùng Fashion Store<br />
+          <span class="text-primary">Nơi Thời Trang Gặp Đam Mê</span>
+        </h1>
+        <p class="hero-desc text-secondary mb-4 mx-auto">
+          Khám phá thế giới xu hướng thời trang tiên tiến, bộ sưu tập được tuyển
+          chọn kỹ lưỡng và những món đồ vượt thời gian đầy cảm hứng.
+        </p>
+        <a
+          href="../DeTaiBanQuanAo/HTML/list.html"
+          class="btn btn-dark btn-lg px-5 py-3 rounded-pill"
+        >
+          Bắt Đầu Mua Sắm <i class="bx bx-right-arrow-alt ms-2"></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="categories-slider-section py-5 bg-white">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-4">
+            <div class="categories-box bg-light rounded-4 p-4 shadow-sm h-100">
+              <h4 class="fw-bold mb-4 category-title">
+                <i class="bx bx-category-alt me-2"></i>Danh Mục
+              </h4>
+              <ul class="category-list list-unstyled">
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=nam"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Thời Trang Nam</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=nu"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Thời Trang Nữ</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=tre-em"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Thời Trang Trẻ Em</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=ao-khoac-vest"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Áo Khoác &amp; Vest</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=tui-xach"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Túi Xách</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=dong-ho"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Đồng Hồ</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=kinh-mat"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Kính Mắt</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=giay-dep"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Giày Dép</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="../DeTaiBanQuanAo/HTML/list.html?category=phu-kien-khac"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Phụ Kiện Khác</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="mt-4 pt-3 border-top">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/list.html"
+                  class="btn btn-outline-dark btn-sm w-100 rounded-pill"
+                  >Xem Tất Cả</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-9 col-md-8">
+            <div
+              id="mainCarousel"
+              class="carousel slide carousel-fade"
+              data-bs-ride="carousel"
+              data-bs-interval="3500"
+              data-bs-pause="false"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#mainCarousel"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#mainCarousel"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#mainCarousel"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#mainCarousel"
+                  data-bs-slide-to="3"
+                  aria-label="Slide 4"
+                ></button>
+              </div>
+
+              <div class="carousel-inner rounded-4 shadow">
+                <div class="carousel-item active">
+                  <img
+                    src="../DeTaiBanQuanAo/IMG/aocapdoi.png"
+                    alt="Bộ sưu tập đôi"
+                    class="carousel-img"
+                    loading="eager"
+                  />
+                  <div
+                    class="carousel-caption bg-dark bg-opacity-50 rounded-4 p-4"
+                  >
+                    <h3 class="fw-bold mb-1">Set Nam Nữ</h3>
+                    <p class="mb-3">Phong cách đồng điệu cho đôi bạn trẻ</p>
+                    <a
+                      href="../DeTaiBanQuanAo/HTML/collection.html"
+                      class="btn btn-light btn-sm rounded-pill px-4"
+                      >Khám Phá Ngay</a
+                    >
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img
+                    src="../DeTaiBanQuanAo/IMG/red.png"
+                    alt="Featured"
+                    class="carousel-img"
+                    loading="lazy"
+                  />
+                  <div
+                    class="carousel-caption bg-dark bg-opacity-50 rounded-4 p-4"
+                  >
+                    <h3 class="fw-bold mb-1">Áo cặp đơn giản</h3>
+                    <p class="mb-3">Giản dị, thanh lịch</p>
+                    <a
+                      href="../DeTaiBanQuanAo/HTML/list.html?category=nu"
+                      class="btn btn-light btn-sm rounded-pill px-4"
+                      >Mua Ngay</a
+                    >
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img
+                    src="../DeTaiBanQuanAo/IMG/aodai.png"
+                    alt="Featured 2"
+                    class="carousel-img"
+                    loading="lazy"
+                  />
+                  <div
+                    class="carousel-caption bg-dark bg-opacity-50 rounded-4 p-4"
+                  >
+                    <h3 class="fw-bold mb-1">Phong Cách Hiện Đại</h3>
+                    <p class="mb-3">Xu hướng thời trang mới nhất 2026</p>
+                    <a
+                      href="#collections"
+                      class="btn btn-light btn-sm rounded-pill px-4"
+                      >Xem Thêm</a
+                    >
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img
+                    src="../DeTaiBanQuanAo/IMG/salefeaer.png"
+                    alt="Sale"
+                    class="carousel-img"
+                    loading="lazy"
+                  />
+                  <div
+                    class="carousel-caption bg-danger bg-opacity-75 rounded-4 p-4"
+                  >
+                    <h3 class="fw-bold mb-1">SALE UP TO 50%</h3>
+                    <p class="mb-3">Giảm giá sốc - Số lượng có hạn</p>
+                    <a
+                      href="../DeTaiBanQuanAo/HTML/list.html"
+                      class="btn btn-warning btn-sm rounded-pill px-4 fw-bold"
+                    >
+                      <i class="bx bx-purchase-tag-alt"></i> Mua Ngay
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#mainCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#mainCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 id="products" class="text-center mb-4 fw-bold products-title">
+          Sản Phẩm Mới Về Theo Danh Mục
+        </h2>
+
+        <ul
+          class="nav nav-pills justify-content-center mb-5 gap-2 flex-wrap"
+          id="home-category-pills"
+        >
+          <li class="nav-item">
+            <button
+              class="nav-link active rounded-pill px-4"
+              data-category="ao-so-mi"
+              onclick="filterHomeProducts('ao-so-mi', this)"
+            >
+              Áo Sơ Mi
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link rounded-pill px-4"
+              data-category="quan-short"
+              onclick="filterHomeProducts('quan-short', this)"
+            >
+              Quần Short
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link rounded-pill px-4"
+              data-category="ao-khoac"
+              onclick="filterHomeProducts('ao-khoac', this)"
+            >
+              Áo Khoác
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link rounded-pill px-4"
+              data-category="ao-hoodie"
+              onclick="filterHomeProducts('ao-hoodie', this)"
+            >
+              Áo Hoodie
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link rounded-pill px-4"
+              data-category="quan-dai"
+              onclick="filterHomeProducts('quan-dai', this)"
+            >
+              Quần Dài
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link rounded-pill px-4"
+              data-category="giay-dep"
+              onclick="filterHomeProducts('giay-dep', this)"
+            >
+              Giày Dép
+            </button>
+          </li>
+        </ul>
+
+        <div class="row g-4" id="home-products-grid"></div>
+
+        <div class="text-center mt-5">
+          <a
+            href="../DeTaiBanQuanAo/HTML/list.html"
+            class="btn btn-dark btn-lg px-5 rounded-pill"
+            >Xem Tất Cả Sản Phẩm</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="offcanvas offcanvas-end shadow"
+      tabindex="-1"
+      id="cartOffcanvas"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold">
+          <i class="bi bi-cart3 me-2"></i>Giỏ Hàng Của Bạn
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column p-0">
+        <div
+          id="cart-items-container"
+          class="flex-grow-1 overflow-auto p-3"
+        ></div>
+        <div class="border-top p-3 bg-light mt-auto">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="fw-semibold text-muted">Tổng cộng:</span>
+            <span class="fs-5 fw-bold text-danger" id="cart-total">0₫</span>
+          </div>
+          <a
+            href="../DeTaiBanQuanAo/HTML/cart.html"
+            class="btn btn-outline-secondary w-100 py-2 rounded-3 mb-2"
+            >Xem giỏ hàng</a
+          >
+          <button
+            class="btn btn-dark w-100 py-2 rounded-3 fw-bold"
+            onclick="
+              window.location.href = '../DeTaiBanQuanAo/HTML/payment.html'
+            "
+          >
+            Thanh Toán Ngay
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast align-items-center text-bg-dark border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>
+            Đã thêm <strong id="toastProductName"></strong> vào giỏ!
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <footer id="lienhe" class="bg-dark text-light py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img
+                src="../DeTaiBanQuanAo/IMG/logo.jpg"
+                alt="Fashion Store Logo"
+                style="
+                  width: 42px;
+                  height: 42px;
+                  border-radius: 10px;
+                  object-fit: cover;
+                "
+              />
+              <h4 class="fw-bold mb-0 footer-brand">Fashion Store</h4>
+            </div>
+            <p class="text-muted mb-4">
+              Thiết kế những trải nghiệm số tuyệt vời mang đến nhiều niềm vui
+              hơn cho thế giới.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-facebook"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-instagram"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-twitter"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Mua Sắm</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/list.html?category=nam"
+                  class="text-muted text-decoration-none"
+                  >Sản phẩm nam</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/list.html?category=nu"
+                  class="text-muted text-decoration-none"
+                  >Sản phẩm nữ</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/list.html?category=ao-khoac-vest"
+                  class="text-muted text-decoration-none"
+                  >Bộ sưu tập mùa đông</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/list.html?category=phu-kien-khac"
+                  class="text-muted text-decoration-none"
+                  >Phụ kiện</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/promotion.html"
+                  class="text-muted text-decoration-none"
+                  >Khuyến mãi</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/sale.html"
+                  class="text-muted text-decoration-none"
+                  >Sale</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Công Ty</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/introduction.html"
+                  class="text-muted text-decoration-none"
+                  >Về chúng tôi</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Tuyển dụng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Nhà đầu tư</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../DeTaiBanQuanAo/HTML/news.html"
+                  class="text-muted text-decoration-none"
+                  >Tin tức</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none">Mục đích</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Hỗ Trợ</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Trạng thái đơn hàng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Vận chuyển &amp; Giao hàng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Chính sách đổi trả</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Phương thức thanh toán</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#lienhe" class="text-muted text-decoration-none"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4 border-secondary" />
+
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start"></div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#" class="text-muted text-decoration-none me-3"
+              >Điều khoản sử dụng</a
+            >
+            <a href="#" class="text-muted text-decoration-none me-3"
+              >Chính sách bảo mật</a
+            >
+            <a href="#" class="text-muted text-decoration-none">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="authTitle">Đăng nhập</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body pt-2">
+            <div id="authMsg" class="d-none"></div>
+
+            <form id="loginForm">
+              <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input id="loginEmail" type="email" class="form-control" />
+                <div class="text-danger small mt-1" id="errLoginEmail"></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Mật khẩu</label>
+                <input
+                  id="loginPassword"
+                  type="password"
+                  class="form-control"
+                />
+                <div class="text-danger small mt-1" id="errLoginPassword"></div>
+              </div>
+
+              <button class="btn btn-dark w-100 rounded-pill" type="submit">
+                Đăng nhập
+              </button>
+
+              <div class="text-center mt-3">
+                <span class="text-muted">Chưa có tài khoản?</span>
+                <a href="#" id="toRegister">Đăng ký</a>
+              </div>
+            </form>
+
+            <form id="registerForm" class="d-none mt-1">
+              <div class="mb-2">
+                <label class="form-label">Họ tên</label>
+                <input id="regName" class="form-control" />
+                <div class="text-danger small mt-1" id="errName"></div>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input id="regEmail" type="email" class="form-control" />
+                <div class="text-danger small mt-1" id="errEmail"></div>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Mật khẩu</label>
+                <input id="regPassword" type="password" class="form-control" />
+                <div class="text-danger small mt-1" id="errPassword"></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Nhập lại mật khẩu</label>
+                <input id="regPassword2" type="password" class="form-control" />
+                <div class="text-danger small mt-1" id="errPassword2"></div>
+              </div>
+
+              <button class="btn btn-dark w-100 rounded-pill" type="submit">
+                Đăng ký
+              </button>
+
+              <div class="text-center mt-3">
+                <span class="text-muted">Đã có tài khoản?</span>
+                <a href="#" id="toLogin">Đăng nhập</a>
+              </div>
+            </form>
+
+            <div id="accountView" class="d-none">
+              <div class="p-3 bg-light border rounded-3">
+                <div class="fw-bold mb-1">Tài khoản</div>
+                <div class="small text-muted">
+                  Tên: <span id="accName"></span>
+                </div>
+                <div class="small text-muted">
+                  Email: <span id="accEmail"></span>
+                </div>
+              </div>
+
+              <button
+                id="btnLogout"
+                class="btn btn-dark w-100 rounded-pill mt-3"
+                type="button"
+              >
+                Đăng xuất
+              </button>
+
+              <div class="text-center mt-3">
+                <a href="taikhoan.html">Trang tài khoản</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../DeTaiBanQuanAo/JS/index.js"></script>
+  </body>
+</html>

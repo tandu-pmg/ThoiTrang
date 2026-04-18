@@ -1,0 +1,2173 @@
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh mục sản phẩm - Fashion Store</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/list.css" />
+    <script src="../JS/auth.js"></script>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark py-3 sticky-top shadow"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand fw-bold brand-logo d-flex align-items-center gap-2"
+          href="index.html"
+          style="height: 54px"
+        >
+          <img
+            src="../IMG/logo.jpg"
+            alt="Fashion Store Logo"
+            style="
+              width: 42px;
+              height: 42px;
+              border-radius: 10px;
+              object-fit: cover;
+            "
+          />
+          <span>Fashion Store</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link px-3" href="../index.html">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="introduction.html">Giới Thiệu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="collection.html">Bộ Sưu Tập</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="../HTML/list.html#lienhe"
+                >Liên Hệ</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle px-3 active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Danh Mục
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="list.html?category=phu-kien-khac"
+                    >Phụ Kiện</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="promotion.html">Khuyến Mãi</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="list.html">Tất Cả Sản Phẩm</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="d-flex gap-3 align-items-center text-white">
+            <form
+              class="d-flex ms-3"
+              role="search"
+              onsubmit="return searchProducts(event);"
+            >
+              <input
+                class="form-control me-2 rounded-pill"
+                type="search"
+                placeholder="Tìm kiếm sản phẩm..."
+                aria-label="Tìm kiếm"
+                id="searchInput"
+              />
+              <button class="btn btn-outline-light rounded-pill" type="submit">
+                <i class="bx bx-search"></i>
+              </button>
+            </form>
+
+            <a
+              id="user-link"
+              href="#"
+              class="text-white text-decoration-none"
+              title="Tài khoản"
+              data-bs-toggle="modal"
+              data-bs-target="#authModal"
+            >
+              <i class="bx bx-user fs-5"></i>
+            </a>
+
+            <a
+              id="hello-link"
+              href="#"
+              class="text-white text-decoration-none small d-none"
+              data-bs-toggle="modal"
+              data-bs-target="#authModal"
+              title="Tài khoản"
+            >
+              Xin chào, <strong id="hello-name"></strong>
+            </a>
+
+            <a
+              href="cart.html"
+              class="text-white text-decoration-none position-relative"
+              title="Giỏ hàng"
+            >
+              <i id="nav-cart-icon" class="bx bx-cart fs-5"></i>
+              <span
+                id="nav-cart-count"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge"
+                >0</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-light py-2 border-bottom">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0 small">
+            <li class="breadcrumb-item">
+              <a href="../index.html" class="text-decoration-none text-dark"
+                >Trang chủ</a
+              >
+            </li>
+            <li
+              class="breadcrumb-item active"
+              aria-current="page"
+              id="breadcrumb-cat"
+            >
+              Danh mục sản phẩm
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="categories-slider-section py-4">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-4">
+            <div class="categories-box bg-light rounded-4 p-4 shadow-sm h-100">
+              <h4 class="fw-bold mb-4 category-title">
+                <i class="bx bx-category-alt me-2"></i>Danh Mục
+              </h4>
+
+              <ul class="category-list list-unstyled">
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=nam"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Thời Trang Nam</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=nu"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Thời Trang Nữ</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=tre-em"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Thời Trang Trẻ Em</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=ao-khoac-vest"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Áo Khoác &amp; Vest</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=tui-xach"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Túi Xách</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=dong-ho"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Đồng Hồ</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=kinh-mat"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Kính Mắt</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=giay-dep"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Giày Dép</span><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+                <li class="category-item mb-2">
+                  <a
+                    href="list.html?category=phu-kien-khac"
+                    class="d-flex align-items-center justify-content-between text-decoration-none"
+                  >
+                    <span>Phụ Kiện Khác</span
+                    ><i class="bx bx-chevron-right"></i>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="mt-4 pt-3 border-top">
+                <a
+                  href="list.html"
+                  class="btn btn-outline-dark btn-sm w-100 rounded-pill"
+                  >Xem Tất Cả</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-9 col-md-8 section-all-product">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="fw-bold mb-0" id="list-page-title">Tất Cả Sản Phẩm</h3>
+              <span class="text-muted small" id="product-count-label"></span>
+            </div>
+
+            <div class="row g-4 my-r" id="product-grid">
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nam"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        301,
+                        'Quần Jeans basic regular fit',
+                        499000,
+                        '../IMG/Jeansbasicregularfit.png',
+                        'Thời trang nam',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-29%</span>
+                      <img
+                        src="../IMG/Jeansbasicregularfit.png"
+                        alt="Quần Jeans basic regular fit"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Quần Jeans basic regular fit</div>
+                      <div class="proList text-muted">Thời trang nam</div>
+                      <div class="proPrice">
+                        <span class="price-new">499.000đ</span>
+                        <span class="price-old">699.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          301,
+                          'Quần Jeans basic regular fit',
+                          499000,
+                          '../IMG/Jeansbasicregularfit.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="ao-khoac-vest"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        302,
+                        'Áo da lộn basic',
+                        799000,
+                        '../IMG/dalonbasic.png',
+                        'Áo khoác & Vest',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-27%</span>
+                      <img src="../IMG/dalonbasic.png" alt="Áo da lộn basic" />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Áo da lộn basic</div>
+                      <div class="proList text-muted">Áo khoác &amp; Vest</div>
+                      <div class="proPrice">
+                        <span class="price-new">799.000đ</span>
+                        <span class="price-old">1.099.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          302,
+                          'Áo da lộn basic',
+                          799000,
+                          '../IMG/dalonbasic.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="ao-khoac-vest"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        303,
+                        'Áo khoác gió 2 lớp',
+                        399000,
+                        '../IMG/aokhoacgio2lop.png',
+                        'Áo khoác & Vest',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-39%</span>
+                      <img
+                        src="../IMG/aokhoacgio2lop.png"
+                        alt="Áo khoác gió 2 lớp"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Áo khoác gió 2 lớp</div>
+                      <div class="proList text-muted">Áo khoác &amp; Vest</div>
+                      <div class="proPrice">
+                        <span class="price-new">399.000đ</span>
+                        <span class="price-old">650.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          303,
+                          'Áo khoác gió 2 lớp',
+                          399000,
+                          '../IMG/aokhoacgio2lop.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="ao-khoac-vest"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        304,
+                        'Áo khoác lông cừu 2 lớp',
+                        599000,
+                        '../IMG/aohoaclongcuu2lop.png',
+                        'Áo khoác & Vest',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-20%</span>
+                      <img
+                        src="../IMG/aohoaclongcuu2lop.png"
+                        alt="Áo khoác lông cừu 2 lớp"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Áo khoác lông cừu 2 lớp</div>
+                      <div class="proList text-muted">Áo khoác &amp; Vest</div>
+                      <div class="proPrice">
+                        <span class="price-new">599.000đ</span>
+                        <span class="price-old">750.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          304,
+                          'Áo khoác lông cừu 2 lớp',
+                          599000,
+                          '../IMG/aohoaclongcuu2lop.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nam"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        305,
+                        'Áo nỉ cánh phối màu tay',
+                        379000,
+                        '../IMG/aonicanphoimautay.png',
+                        'Thời trang nam',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-20%</span>
+                      <img
+                        src="../IMG/aonicanphoimautay.png"
+                        alt="Áo nỉ cánh phối màu tay"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Áo nỉ cánh phối màu tay</div>
+                      <div class="proList text-muted">Thời trang nam</div>
+                      <div class="proPrice">
+                        <span class="price-new">379.000đ</span>
+                        <span class="price-old">469.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          305,
+                          'Áo nỉ cánh phối màu tay',
+                          379000,
+                          '../IMG/aonicanphoimautay.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nu"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        306,
+                        'Váy xanh công sở',
+                        459000,
+                        '../IMG/vayxanhcongso.png',
+                        'Thời trang nữ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-15%</span>
+                      <img
+                        src="../IMG/vayxanhcongso.png"
+                        alt="Váy xanh công sở"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Váy xanh công sở</div>
+                      <div class="proList text-muted">Thời trang nữ</div>
+                      <div class="proPrice">
+                        <span class="price-new">459.000đ</span>
+                        <span class="price-old">539.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          306,
+                          'Váy xanh công sở',
+                          459000,
+                          '../IMG/vayxanhcongso.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nam"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        307,
+                        'Unisex fit – dễ phối',
+                        299000,
+                        '../IMG/unisex.png',
+                        'Thời trang nam',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-20%</span>
+                      <img src="../IMG/unisex.png" alt="Unisex fit – dễ phối" />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Unisex fit – dễ phối</div>
+                      <div class="proList text-muted">Thời trang nam</div>
+                      <div class="proPrice">
+                        <span class="price-new">299.000đ</span>
+                        <span class="price-old">379.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          307,
+                          'Unisex fit – dễ phối',
+                          299000,
+                          '../IMG/unisex.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nu"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        308,
+                        'Áo phông trắng / oversize',
+                        349000,
+                        '../IMG/aophongtrang.png',
+                        'Thời trang nữ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-20%</span>
+                      <img
+                        src="../IMG/aophongtrang.png"
+                        alt="Áo phông trắng / oversize"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Áo phong trang / oversize</div>
+                      <div class="proList text-muted">Thời trang nữ</div>
+                      <div class="proPrice">
+                        <span class="price-new">349.000đ</span>
+                        <span class="price-old">439.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          308,
+                          'Áo phong trang / oversize',
+                          349000,
+                          '../IMG/anhphongtrang.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nu"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        309,
+                        'Bộ quần áo basic set',
+                        499000,
+                        '../IMG/boquanao.png',
+                        'Thời trang nữ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-30%</span>
+                      <img
+                        src="../IMG/boquanao.png"
+                        alt="Bộ quần áo basic set"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Bộ quần áo basic set</div>
+                      <div class="proList text-muted">Thời trang nữ</div>
+                      <div class="proPrice">
+                        <span class="price-new">499.000đ</span>
+                        <span class="price-old">699.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          309,
+                          'Bộ quần áo basic set',
+                          499000,
+                          '../IMG/boquanao.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nam"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        310,
+                        'Áo couple basic (Unisex)',
+                        399000,
+                        '../IMG/anhcouple.png',
+                        'Thời trang nam',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <div class="product-thumb-wrap">
+                      <span class="discount-badge">-25%</span>
+                      <img
+                        src="../IMG/anhcouple.png"
+                        alt="Áo couple basic (Unisex)"
+                      />
+                    </div>
+                    <div class="caption text-center">
+                      <div class="proName">Áo couple basic (Unisex)</div>
+                      <div class="proList text-muted">Thời trang nam</div>
+                      <div class="proPrice">
+                        <span class="price-new">399.000đ</span>
+                        <span class="price-old">529.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          310,
+                          'Áo couple basic (Unisex)',
+                          399000,
+                          '../IMG/anhcouple.jpg',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nam"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        201,
+                        'Áo Sơ Mi Nam Form Rộng',
+                        250000,
+                        '../IMG/thoitrang1.png',
+                        'Áo thun nam',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/thoitrang1.png"
+                      alt="Áo Sơ Mi Nam Form Rộng"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Áo Sơ Mi Nam Form Rộng</div>
+                      <div class="proList text-muted">Áo thun nam</div>
+                      <div class="proPrice">
+                        <span class="afterDis">250.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          201,
+                          'Áo Sơ Mi Nam Form Rộng',
+                          250000,
+                          '../IMG/thoitrang1.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nam"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        202,
+                        'Áo Sơ Mi Denim Nam',
+                        320000,
+                        '../IMG/thoitrang2.png',
+                        'Áo thun nam',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/thoitrang2.png" alt="Áo Sơ Mi Denim Nam" />
+                    <div class="caption text-center">
+                      <div class="proName">Áo Sơ Mi Denim Nam</div>
+                      <div class="proList text-muted">Áo thun nam</div>
+                      <div class="proPrice">
+                        <span class="afterDis">320.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          202,
+                          'Áo Sơ Mi Denim Nam',
+                          320000,
+                          '../IMG/thoitrang2.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nam"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        203,
+                        'Áo Polo Nam Tay Dài',
+                        450000,
+                        '../IMG/thoitrang3.png',
+                        'Áo thun nam',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/thoitrang3.png"
+                      alt="Áo Polo Nam Tay Dài"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Áo Polo Nam Tay Dài</div>
+                      <div class="proList text-muted">Áo thun nam</div>
+                      <div class="proPrice">
+                        <span class="afterDis">450.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          203,
+                          'Áo Polo Nam Tay Dài',
+                          450000,
+                          '../IMG/thoitrang3.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nu"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        204,
+                        'Set Áo Len + Quần Jean Ống Rộng',
+                        1800000,
+                        '../IMG/CandyTopRR25AT31.webp',
+                        'Thời trang nữ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/CandyTopRR25AT31.webp"
+                      alt="Set Áo Len + Quần Jean Ống Rộng"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Set Áo Len + Quần Jean Ống Rộng</div>
+                      <div class="proList text-muted">Thời trang nữ</div>
+                      <div class="proPrice">
+                        <span class="afterDis">1.800.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          204,
+                          'Set Áo Len + Quần Jean Ống Rộng',
+                          1800000,
+                          '../IMG/CandyTopRR25AT31.webp',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nu"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        205,
+                        'Áo Khoác Dạ Nữ',
+                        1500000,
+                        '../IMG/aodanu.png',
+                        'Thời trang nữ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/aodanu.png" alt="Áo Khoác Dạ Nữ" />
+                    <div class="caption text-center">
+                      <div class="proName">Áo Khoác Dạ Nữ</div>
+                      <div class="proList text-muted">Thời trang nữ</div>
+                      <div class="proPrice">
+                        <span class="afterDis">1.500.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          205,
+                          'Áo Khoác Dạ Nữ',
+                          1500000,
+                          '../IMG/aodanu.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="nu"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        220,
+                        'Áo Thun Nữ Basic',
+                        360000,
+                        '../IMG/aothunnu.png',
+                        'Thời trang nữ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/aothunnu.png" alt="Áo Thun Nữ Basic" />
+                    <div class="caption text-center">
+                      <div class="proName">Áo Thun Nữ Basic</div>
+                      <div class="proList text-muted">Thời trang nữ</div>
+                      <div class="proPrice">
+                        <span class="afterDis">360.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          220,
+                          'Áo Thun Nữ Basic',
+                          360000,
+                          '../IMG/aothunnu.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="tre-em"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        206,
+                        'Áo Khoác Có Mũ Spider-Man',
+                        250000,
+                        '../IMG/nguoinhen.png',
+                        'Trẻ em',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/nguoinhen.png"
+                      alt="Áo Khoác Có Mũ Spider-Man"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Áo Khoác Có Mũ Spider-Man</div>
+                      <div class="proList text-muted">Trẻ em</div>
+                      <div class="proPrice">
+                        <span class="afterDis">250.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          206,
+                          'Áo Khoác Có Mũ Spider-Man',
+                          250000,
+                          '../IMG/nguoinhen.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="tre-em"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        207,
+                        'Bộ Đồ Spider-Man',
+                        220000,
+                        '../IMG/nguoinhen1.png',
+                        'Trẻ em',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/nguoinhen1.png" alt="Bộ Đồ Spider-Man" />
+                    <div class="caption text-center">
+                      <div class="proName">Bộ Đồ Spider-Man</div>
+                      <div class="proList text-muted">Trẻ em</div>
+                      <div class="proPrice">
+                        <span class="afterDis">220.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          207,
+                          'Bộ Đồ Spider-Man',
+                          220000,
+                          '../IMG/nguoinhen1.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="ao-khoac-vest"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        208,
+                        'Áo Khoác Dạ Ngắn Cổ Tròn',
+                        1250000,
+                        '../IMG/BlackFormRegularAK076.png',
+                        'Áo Khoác & Vest',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/BlackFormRegularAK076.png"
+                      alt="Áo Khoác Dạ Ngắn Cổ Tròn"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Áo Khoác Dạ Ngắn Cổ Tròn</div>
+                      <div class="proList text-muted">Áo Khoác &amp; Vest</div>
+                      <div class="proPrice">
+                        <span class="afterDis">1.250.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          208,
+                          'Áo Khoác Dạ Ngắn Cổ Tròn',
+                          1250000,
+                          '../IMG/BlackFormRegularAK076.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="ao-khoac-vest"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        209,
+                        'Blazer Nam Slim Fit',
+                        1950000,
+                        '../IMG/vest.png',
+                        'Áo Khoác & Vest',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/vest.png" alt="Blazer Nam Slim Fit" />
+                    <div class="caption text-center">
+                      <div class="proName">Blazer Nam Slim Fit</div>
+                      <div class="proList text-muted">Áo Khoác &amp; Vest</div>
+                      <div class="proPrice">
+                        <span class="afterDis">1.950.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          209,
+                          'Blazer Nam Slim Fit',
+                          1950000,
+                          '../IMG/vest.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="tui-xach"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        210,
+                        'Túi Tote Da Đen',
+                        150000,
+                        '../IMG/FinenessReEditTopL.webp',
+                        'Túi xách',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/FinenessReEditTopL.webp"
+                      alt="Túi Tote Da Đen"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Túi Tote Da Đen</div>
+                      <div class="proList text-muted">Túi xách</div>
+                      <div class="proPrice">
+                        <span class="afterDis">150.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          210,
+                          'Túi Tote Da Đen',
+                          150000,
+                          '../IMG/FinenessReEditTopL.webp',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="tui-xach"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        211,
+                        'Túi Đeo Vai Mini Hobo',
+                        180000,
+                        '../IMG/tuixach.png',
+                        'Túi xách',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/tuixach.png" alt="Túi Đeo Vai Mini Hobo" />
+                    <div class="caption text-center">
+                      <div class="proName">Túi Đeo Vai Mini Hobo</div>
+                      <div class="proList text-muted">Túi xách</div>
+                      <div class="proPrice">
+                        <span class="afterDis">180.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          211,
+                          'Túi Đeo Vai Mini Hobo',
+                          180000,
+                          '../IMG/tuixach.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="dong-ho"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        212,
+                        'Đồng Hồ Steel Diamond',
+                        2500000,
+                        '../IMG/dongho.png',
+                        'Đồng hồ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/dongho.png" alt="Đồng Hồ Steel Diamond" />
+                    <div class="caption text-center">
+                      <div class="proName">Đồng Hồ Steel Diamond</div>
+                      <div class="proList text-muted">Đồng hồ</div>
+                      <div class="proPrice">
+                        <span class="afterDis">2.500.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          212,
+                          'Đồng Hồ Steel Diamond',
+                          2500000,
+                          '../IMG/dongho.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="dong-ho"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        213,
+                        'Đồng Hồ Golden Red Face',
+                        1900000,
+                        '../IMG/CitizenNJ0153-82X.webp',
+                        'Đồng hồ',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/CitizenNJ0153-82X.webp"
+                      alt="Đồng Hồ Golden Red Face"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Đồng Hồ Golden Red Face</div>
+                      <div class="proList text-muted">Đồng hồ</div>
+                      <div class="proPrice">
+                        <span class="afterDis">1.900.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          213,
+                          'Đồng Hồ Golden Red Face',
+                          1900000,
+                          '../IMG/CitizenNJ0153-82X.webp',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="kinh-mat"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        214,
+                        'Kính Gọng Tròn Retro',
+                        320000,
+                        '../IMG/kinhmat1.png',
+                        'Kính mắt',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/kinhmat1.png" alt="Kính Gọng Tròn Retro" />
+                    <div class="caption text-center">
+                      <div class="proName">Kính Gọng Tròn Retro</div>
+                      <div class="proList text-muted">Kính mắt</div>
+                      <div class="proPrice">
+                        <span class="afterDis">320.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          214,
+                          'Kính Gọng Tròn Retro',
+                          320000,
+                          '../IMG/kinhmat1.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="kinh-mat"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        215,
+                        'Kính Gọng Vuông Minimal',
+                        280000,
+                        '../IMG/kinhmat2.png',
+                        'Kính mắt',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/kinhmat2.png"
+                      alt="Kính Gọng Vuông Minimal"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Kính Gọng Vuông Minimal</div>
+                      <div class="proList text-muted">Kính mắt</div>
+                      <div class="proPrice">
+                        <span class="afterDis">280.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          215,
+                          'Kính Gọng Vuông Minimal',
+                          280000,
+                          '../IMG/kinhmat2.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="giay-dep"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        216,
+                        'Sandal Cao Gót Quai Mảnh',
+                        450000,
+                        '../IMG/sandalsberade.jpg',
+                        'Giày dép',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/sandalsberade.jpg"
+                      alt="Sandal Cao Gót Quai Mảnh"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Sandal Cao Gót Quai Mảnh</div>
+                      <div class="proList text-muted">Giày dép</div>
+                      <div class="proPrice">
+                        <span class="afterDis">450.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          216,
+                          'Sandal Cao Gót Quai Mảnh',
+                          450000,
+                          '../IMG/sandalsberade.jpg',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="giay-dep"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        217,
+                        'Giày Tây Da Classic',
+                        390000,
+                        '../IMG/giaydep.png',
+                        'Giày dép',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img src="../IMG/giaydep.png" alt="Giày Tây Da Classic" />
+                    <div class="caption text-center">
+                      <div class="proName">Giày Tây Da Classic</div>
+                      <div class="proList text-muted">Giày dép</div>
+                      <div class="proPrice">
+                        <span class="afterDis">390.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          217,
+                          'Giày Tây Da Classic',
+                          390000,
+                          '../IMG/giaydep.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="phu-kien-khac"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        218,
+                        'Vòng Tay Mạ Vàng Basic',
+                        120000,
+                        '../IMG/PNJ0000Y001604.png',
+                        'Phụ kiện khác',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/PNJ0000Y001604.png"
+                      alt="Vòng Tay Mạ Vàng Basic"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Vòng Tay Mạ Vàng Basic</div>
+                      <div class="proList text-muted">Phụ kiện khác</div>
+                      <div class="proPrice">
+                        <span class="afterDis">120.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          218,
+                          'Vòng Tay Mạ Vàng Basic',
+                          120000,
+                          '../IMG/PNJ0000Y001604.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-3 col-md-6 col-sm-6 product-item"
+                data-category="phu-kien-khac"
+              >
+                <div
+                  class="thumbnail card border-0 h-100 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <a
+                    href="productdetails.html"
+                    onclick="
+                      goToDetail(
+                        219,
+                        'Dây Chuyền Thiên Nga Đính Đá',
+                        160000,
+                        '../IMG/daychuyen.png',
+                        'Phụ kiện khác',
+                      )
+                    "
+                    class="text-decoration-none text-dark"
+                  >
+                    <img
+                      src="../IMG/daychuyen.png"
+                      alt="Dây Chuyền Thiên Nga Đính Đá"
+                    />
+                    <div class="caption text-center">
+                      <div class="proName">Dây Chuyền Thiên Nga Đính Đá</div>
+                      <div class="proList text-muted">Phụ kiện khác</div>
+                      <div class="proPrice">
+                        <span class="afterDis">160.000đ</span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="px-3 pb-3">
+                    <button
+                      type="button"
+                      class="btn btn-outline-dark btn-sm w-100 mt-2 rounded-pill"
+                      onclick="
+                        addToCart(
+                          219,
+                          'Dây Chuyền Thiên Nga Đính Đá',
+                          160000,
+                          '../IMG/daychuyen.png',
+                          this,
+                        )
+                      "
+                    >
+                      Thêm vào giỏ
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="empty-state" class="text-center py-5 d-none">
+              <i class="bx bx-search-alt fs-1 text-muted"></i>
+              <p class="mt-2 text-muted">
+                Không tìm thấy sản phẩm trong danh mục này.
+              </p>
+              <a href="list.html" class="btn btn-dark mt-2"
+                >Xem tất cả sản phẩm</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast align-items-center text-bg-dark border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>
+            Đã thêm <strong id="toastProductName"></strong> vào giỏ!
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <footer id="lienhe" class="bg-dark text-light py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img
+                src="../IMG/logo.jpg"
+                alt="Fashion Store Logo"
+                style="
+                  width: 42px;
+                  height: 42px;
+                  border-radius: 10px;
+                  object-fit: cover;
+                "
+              />
+              <h4 class="fw-bold mb-0 footer-brand">Fashion Store</h4>
+            </div>
+            <p class="text-muted mb-4">
+              Thiết kế những trải nghiệm số tuyệt vời mang đến nhiều niềm vui
+              hơn cho thế giới.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-facebook"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-instagram"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-twitter"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Mua Sắm</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="list.html?category=nam"
+                  class="text-muted text-decoration-none"
+                  >Sản phẩm nam</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="list.html?category=nu"
+                  class="text-muted text-decoration-none"
+                  >Sản phẩm nữ</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="list.html?category=ao-khoac-vest"
+                  class="text-muted text-decoration-none"
+                  >Bộ sưu tập mùa đông</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="list.html?category=phu-kien-khac"
+                  class="text-muted text-decoration-none"
+                  >Phụ kiện</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="promotion.html" class="text-muted text-decoration-none"
+                  >Khuyến mãi</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="sale.html" class="text-muted text-decoration-none"
+                  >Sale</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Công Ty</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="introduction.html"
+                  class="text-muted text-decoration-none"
+                  >Về chúng tôi</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Tuyển dụng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Nhà đầu tư</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="news.html" class="text-muted text-decoration-none"
+                  >Tin tức</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none">Mục đích</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Hỗ Trợ</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Trạng thái đơn hàng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Vận chuyển &amp; Giao hàng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Chính sách đổi trả</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Phương thức thanh toán</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../HTML/sale.html#lienhe"
+                  class="text-muted text-decoration-none"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4 border-secondary" />
+
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start"></div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#" class="text-muted text-decoration-none me-3"
+              >Điều khoản sử dụng</a
+            >
+            <a href="#" class="text-muted text-decoration-none me-3"
+              >Chính sách bảo mật</a
+            >
+            <a href="#" class="text-muted text-decoration-none">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="authTitle">Đăng nhập</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body pt-2">
+            <div id="authMsg" class="d-none"></div>
+
+            <form id="loginForm">
+              <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input id="loginEmail" type="email" class="form-control" />
+                <div class="text-danger small mt-1" id="errLoginEmail"></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Mật khẩu</label>
+                <input
+                  id="loginPassword"
+                  type="password"
+                  class="form-control"
+                />
+                <div class="text-danger small mt-1" id="errLoginPassword"></div>
+              </div>
+
+              <button class="btn btn-dark w-100 rounded-pill" type="submit">
+                Đăng nhập
+              </button>
+
+              <div class="text-center mt-3">
+                <span class="text-muted">Chưa có tài khoản?</span>
+                <a href="#" id="toRegister">Đăng ký</a>
+              </div>
+            </form>
+
+            <form id="registerForm" class="d-none mt-1">
+              <div class="mb-2">
+                <label class="form-label">Họ tên</label>
+                <input id="regName" class="form-control" />
+                <div class="text-danger small mt-1" id="errName"></div>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input id="regEmail" type="email" class="form-control" />
+                <div class="text-danger small mt-1" id="errEmail"></div>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Mật khẩu</label>
+                <input id="regPassword" type="password" class="form-control" />
+                <div class="text-danger small mt-1" id="errPassword"></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Nhập lại mật khẩu</label>
+                <input id="regPassword2" type="password" class="form-control" />
+                <div class="text-danger small mt-1" id="errPassword2"></div>
+              </div>
+
+              <button class="btn btn-dark w-100 rounded-pill" type="submit">
+                Đăng ký
+              </button>
+
+              <div class="text-center mt-3">
+                <span class="text-muted">Đã có tài khoản?</span>
+                <a href="#" id="toLogin">Đăng nhập</a>
+              </div>
+            </form>
+
+            <div id="accountView" class="d-none">
+              <div class="p-3 bg-light border rounded-3">
+                <div class="fw-bold mb-1">Tài khoản</div>
+                <div class="small text-muted">
+                  Tên: <span id="accName"></span>
+                </div>
+                <div class="small text-muted">
+                  Email: <span id="accEmail"></span>
+                </div>
+              </div>
+
+              <button
+                id="btnLogout"
+                class="btn btn-dark w-100 rounded-pill mt-3"
+                type="button"
+              >
+                Đăng xuất
+              </button>
+
+              <div class="text-center mt-3">
+                <a href="taikhoan.html">Trang tài khoản</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../JS/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/list.js"></script>
+  </body>
+</html>

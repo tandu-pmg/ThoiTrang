@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bộ Sưu Tập - Fashion Store</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/collection.css" />
+
+    <script src="../JS/auth.js"></script>
+  </head>
+
+  <body class="collection-page collection-fashion">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark py-3 sticky-top shadow"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand fw-bold brand-logo d-flex align-items-center gap-2"
+          href="index.html"
+          style="height: 54px"
+        >
+          <img
+            src="../IMG/logo.jpg"
+            alt="Fashion Store Logo"
+            style="
+              width: 42px;
+              height: 42px;
+              border-radius: 10px;
+              object-fit: cover;
+            "
+          />
+          <span>Fashion Store</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link px-3" href="../index.html">Trang Chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="introduction.html">Giới Thiệu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3 active" href="collection.html"
+                >Bộ Sưu Tập</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" href="../HTML/collection.html#lienhe"
+                >Liên Hệ</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle px-3"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Thêm
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="list.html?category=phu-kien-khac"
+                  >
+                    Phụ Kiện
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="promotion.html">Khuyến Mãi</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="news.html">Tin Tức</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="d-flex gap-3 align-items-center text-white">
+            <form
+              class="d-flex ms-2"
+              role="search"
+              onsubmit="return searchProducts(event);"
+            >
+              <a href="../HTML/list.html" class="btn btn-dark rounded-pill">
+                <i class="bx bx-search"></i>
+              </a>
+            </form>
+            <a
+              id="user-link"
+              href="#"
+              class="text-white text-decoration-none"
+              title="Tài khoản"
+              data-bs-toggle="modal"
+              data-bs-target="#authModal"
+            >
+              <i class="bx bx-user fs-5"></i>
+            </a>
+
+            <a
+              id="hello-link"
+              href="#"
+              class="text-white text-decoration-none small d-none"
+              data-bs-toggle="modal"
+              data-bs-target="#authModal"
+              title="Tài khoản"
+            >
+              Xin chào, <strong id="hello-name"></strong>
+            </a>
+
+            <a
+              href="cart.html"
+              class="text-white text-decoration-none position-relative"
+              title="Giỏ hàng"
+            >
+              <i id="nav-cart-icon" class="bx bx-cart fs-5"></i>
+              <span
+                id="nav-cart-count"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge"
+              >
+                0
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="collection-top py-3 border-bottom">
+      <div
+        class="container d-flex justify-content-between align-items-center flex-wrap gap-2"
+      >
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0 small">
+            <li class="breadcrumb-item">
+              <a href="../index.html" class="text-decoration-none">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Bộ sưu tập
+            </li>
+          </ol>
+        </nav>
+
+        <div class="d-flex align-items-center gap-2 small">
+          <span class="text-muted">Yêu thích:</span>
+          <span class="badge rounded-pill bg-dark" id="wishCount">0</span>
+        </div>
+      </div>
+    </div>
+
+    <header class="collection-hero-fashion">
+      <div class="container py-5">
+        <div class="row g-4 align-items-end">
+          <div class="col-lg-8">
+            <div class="alt-kicker">Collections</div>
+            <h1 class="alt-title fw-bold display-5 mb-3">Bộ Sưu Tập</h1>
+            <p class="alt-lead mb-0">
+              Lọc nhanh theo phong cách và danh mục. Click “Xem nhanh” để xem mô
+              tả, click tim để lưu yêu thích.
+            </p>
+          </div>
+
+          <div class="col-lg-4">
+            <div
+              class="alt-actions d-flex gap-2 flex-wrap justify-content-lg-end mt-3 mt-lg-0"
+            >
+              <a
+                class="btn btn-warning fw-bold rounded-pill px-4"
+                href="list.html"
+                >Xem sản phẩm</a
+              >
+              <a
+                class="btn btn-outline-light fw-bold rounded-pill px-4"
+                href="promotion.html"
+                >Khuyến mãi</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="alt-filter mt-4 p-4">
+          <div class="row g-3 align-items-center">
+            <div class="col-lg-5">
+              <div class="alt-filter-title">Tìm nhanh &amp; lọc</div>
+              <div class="text-muted small">
+                Nhập từ khoá, chọn style/danh mục/giá và xem kết quả.
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="d-flex gap-2">
+                <div class="input-group alt-search">
+                  <span class="input-group-text bg-white"
+                    ><i class="bx bx-search"></i
+                  ></span>
+                  <input
+                    id="q"
+                    class="form-control"
+                    placeholder="Tìm collection... (ví dụ: minimal, winter, accessories)"
+                  />
+                </div>
+
+                <button
+                  id="btnReset"
+                  class="btn btn-dark rounded-pill px-4 flex-shrink-0"
+                  type="button"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mt-2">
+            <div class="col-lg-4 col-md-6">
+              <label class="form-label small text-muted mb-1">Phong cách</label>
+              <select id="fStyle" class="form-select">
+                <option value="">Tất cả</option>
+                <option value="minimal">Minimal</option>
+                <option value="street">Street</option>
+                <option value="formal">Formal</option>
+                <option value="active">Active</option>
+              </select>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <label class="form-label small text-muted mb-1">Danh mục</label>
+              <select id="fCat" class="form-select">
+                <option value="">Tất cả</option>
+                <option value="nam">Nam</option>
+                <option value="nu">Nữ</option>
+                <option value="outerwear">Áo khoác</option>
+                <option value="phu-kien">Phụ kiện</option>
+                <option value="tre-em">Trẻ em</option>
+                <option value="sale">Sale</option>
+              </select>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <label class="form-label small text-muted mb-1"
+                >Mức giá gợi ý</label
+              >
+              <select id="fPrice" class="form-select">
+                <option value="">Tất cả</option>
+                <option value="under-300">Dưới 300K</option>
+                <option value="300-600">300K - 600K</option>
+                <option value="over-600">Trên 600K</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <span class="alt-chip">Mẹo: Click “Xem nhanh” để xem mô tả</span>
+            <span class="alt-chip">Click tim để lưu yêu thích</span>
+            <span class="alt-chip">Click “Xem sản phẩm” để đi tới list</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+          <div>
+            <div class="alt-section-kicker">Featured</div>
+            <h2 class="fw-bold mb-1 alt-h2">Collection nổi bật</h2>
+            <p class="text-muted mb-0">
+              <span id="resultCount">0</span> bộ sưu tập phù hợp
+            </p>
+          </div>
+          <a
+            href="news.html"
+            class="text-dark text-decoration-none small fw-medium"
+          >
+            Đọc tin tức <i class="bx bx-chevron-right"></i>
+          </a>
+        </div>
+
+        <div class="row g-4" id="collectionGrid"></div>
+
+        <div class="mt-5 p-4 bg-light rounded-4 shadow-sm alt-tip">
+          <div class="row g-3 align-items-center">
+            <div class="col-lg-8">
+              <h5 class="fw-bold mb-1">Gợi ý phối đồ theo concept</h5>
+              <div class="text-muted">
+                Chọn 2–3 màu chủ đạo (đen / trắng / be / navy) và thêm 1 điểm
+                nhấn (túi / kính / đồng hồ).
+              </div>
+            </div>
+            <div class="col-lg-4 d-flex gap-2 flex-wrap justify-content-lg-end">
+              <a
+                href="list.html?category=phu-kien-khac"
+                class="btn btn-dark rounded-pill px-4"
+                >Phụ kiện</a
+              >
+              <a
+                href="promotion.html"
+                class="btn btn-outline-dark rounded-pill px-4"
+                >Khuyến mãi</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div
+          class="alt-cta p-5 rounded-4 bg-dark text-white d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3"
+        >
+          <div>
+            <h3 class="fw-bold mb-1 alt-h3">Săn ưu đãi theo tuần</h3>
+            <p class="text-white-50 mb-0">
+              Khám phá mã giảm giá và chương trình đang áp dụng
+            </p>
+          </div>
+          <div class="d-flex gap-2 flex-wrap">
+            <a
+              href="promotion.html"
+              class="btn btn-warning fw-bold rounded-pill px-4"
+              >Khuyến mãi</a
+            >
+            <a
+              href="sale.html"
+              class="btn btn-outline-light fw-bold rounded-pill px-4"
+              >Sale</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="lienhe" class="bg-dark text-light py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img
+                src="../IMG/logo.jpg"
+                alt="Fashion Store Logo"
+                style="
+                  width: 42px;
+                  height: 42px;
+                  border-radius: 10px;
+                  object-fit: cover;
+                "
+              />
+              <h4 class="fw-bold mb-0 footer-brand">Fashion Store</h4>
+            </div>
+            <p class="text-muted mb-4">
+              Thiết kế những trải nghiệm số tuyệt vời mang đến nhiều niềm vui
+              hơn cho thế giới.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-facebook"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-instagram"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-twitter"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bx bxl-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Mua Sắm</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="list.html?category=nam"
+                  class="text-muted text-decoration-none"
+                  >Sản phẩm nam</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="list.html?category=nu"
+                  class="text-muted text-decoration-none"
+                  >Sản phẩm nữ</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="list.html?category=ao-khoac-vest"
+                  class="text-muted text-decoration-none"
+                  >Bộ sưu tập mùa đông</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="list.html?category=phu-kien-khac"
+                  class="text-muted text-decoration-none"
+                  >Phụ kiện</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="promotion.html" class="text-muted text-decoration-none"
+                  >Khuyến mãi</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="sale.html" class="text-muted text-decoration-none"
+                  >Sale</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Công Ty</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="introduction.html"
+                  class="text-muted text-decoration-none"
+                  >Về chúng tôi</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Tuyển dụng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Nhà đầu tư</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="news.html" class="text-muted text-decoration-none"
+                  >Tin tức</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none">Mục đích</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="mb-3 fw-bold">Hỗ Trợ</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Trạng thái đơn hàng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Vận chuyển &amp; Giao hàng</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Chính sách đổi trả</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-muted text-decoration-none"
+                  >Phương thức thanh toán</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../HTML/sale.html#lienhe"
+                  class="text-muted text-decoration-none"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4 border-secondary" />
+
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start"></div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#" class="text-muted text-decoration-none me-3"
+              >Điều khoản sử dụng</a
+            >
+            <a href="#" class="text-muted text-decoration-none me-3"
+              >Chính sách bảo mật</a
+            >
+            <a href="#" class="text-muted text-decoration-none">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button
+      id="btnBackTop"
+      class="btn btn-dark back-to-top shadow"
+      type="button"
+      title="Lên đầu trang"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <div
+      class="modal fade"
+      id="quickViewModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="qvTitle"></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body pt-2">
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <img
+                  id="qvImg"
+                  class="img-fluid rounded-4 w-100"
+                  style="height: 320px; object-fit: cover"
+                  alt="Collection"
+                />
+              </div>
+              <div class="col-lg-6">
+                <div class="d-flex flex-wrap gap-2 mb-2" id="qvChips"></div>
+                <p class="text-muted" id="qvDesc"></p>
+                <div class="d-flex gap-2 flex-wrap">
+                  <a
+                    id="qvLink"
+                    class="btn btn-dark rounded-pill px-4"
+                    href="list.html"
+                    >Xem sản phẩm</a
+                  >
+                  <a
+                    class="btn btn-outline-dark rounded-pill px-4"
+                    href="promotion.html"
+                    >Khuyến mãi</a
+                  >
+                </div>
+                <div class="text-muted small mt-3">
+                  Gợi ý: hãy dùng phụ kiện để làm điểm nhấn outfit.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-0 pb-0">
+            <h5 class="modal-title fw-bold" id="authTitle">Đăng nhập</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body pt-2">
+            <div id="authMsg" class="d-none"></div>
+
+            <form id="loginForm">
+              <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input id="loginEmail" type="email" class="form-control" />
+                <div class="text-danger small mt-1" id="errLoginEmail"></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Mật khẩu</label>
+                <input
+                  id="loginPassword"
+                  type="password"
+                  class="form-control"
+                />
+                <div class="text-danger small mt-1" id="errLoginPassword"></div>
+              </div>
+
+              <button class="btn btn-dark w-100 rounded-pill" type="submit">
+                Đăng nhập
+              </button>
+
+              <div class="text-center mt-3">
+                <span class="text-muted">Chưa có tài khoản?</span>
+                <a href="#" id="toRegister">Đăng ký</a>
+              </div>
+            </form>
+
+            <form id="registerForm" class="d-none mt-1">
+              <div class="mb-2">
+                <label class="form-label">Họ tên</label>
+                <input id="regName" class="form-control" />
+                <div class="text-danger small mt-1" id="errName"></div>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Email</label>
+                <input id="regEmail" type="email" class="form-control" />
+                <div class="text-danger small mt-1" id="errEmail"></div>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label">Mật khẩu</label>
+                <input id="regPassword" type="password" class="form-control" />
+                <div class="text-danger small mt-1" id="errPassword"></div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Nhập lại mật khẩu</label>
+                <input id="regPassword2" type="password" class="form-control" />
+                <div class="text-danger small mt-1" id="errPassword2"></div>
+              </div>
+
+              <button class="btn btn-dark w-100 rounded-pill" type="submit">
+                Đăng ký
+              </button>
+
+              <div class="text-center mt-3">
+                <span class="text-muted">Đã có tài khoản?</span>
+                <a href="#" id="toLogin">Đăng nhập</a>
+              </div>
+            </form>
+
+            <div id="accountView" class="d-none">
+              <div class="p-3 bg-light border rounded-3">
+                <div class="fw-bold mb-1">Tài khoản</div>
+                <div class="small text-muted">
+                  Tên: <span id="accName"></span>
+                </div>
+                <div class="small text-muted">
+                  Email: <span id="accEmail"></span>
+                </div>
+              </div>
+
+              <button
+                id="btnLogout"
+                class="btn btn-dark w-100 rounded-pill mt-3"
+                type="button"
+              >
+                Đăng xuất
+              </button>
+
+              <div class="text-center mt-3">
+                <a href="taikhoan.html">Trang tài khoản</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/collection.js"></script>
+  </body>
+</html>

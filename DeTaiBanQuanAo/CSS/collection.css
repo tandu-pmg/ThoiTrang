@@ -1,0 +1,289 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+.collection-page {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  background: #f6f5f2;
+  color: #111827;
+}
+
+.collection-fashion .alt-title,
+.collection-fashion .alt-h2,
+.collection-fashion .alt-h3 {
+  font-family: "Playfair Display", serif;
+  letter-spacing: -0.02em;
+}
+
+.collection-fashion .collection-top {
+  background: #fff;
+  border-color: rgba(17, 24, 39, 0.08) !important;
+}
+
+.collection-fashion .collection-top a {
+  color: #111827;
+}
+
+.collection-fashion .collection-hero-fashion {
+  background: linear-gradient(135deg, #0b0f19 0%, #111827 55%, #3b2f2f 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.collection-fashion .collection-hero-fashion::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(
+      560px 280px at 20% 25%,
+      rgba(231, 194, 125, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      520px 260px at 85% 35%,
+      rgba(0, 0, 0, 0.26),
+      transparent 62%
+    );
+  pointer-events: none;
+}
+
+.collection-fashion .collection-hero-fashion .container {
+  position: relative;
+  z-index: 1;
+}
+
+.collection-fashion .alt-kicker {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(231, 194, 125, 0.14);
+  border: 1px solid rgba(231, 194, 125, 0.28);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.collection-fashion .alt-lead {
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 85ch;
+}
+
+.collection-fashion .alt-filter {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111827;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+.collection-fashion .alt-filter-title {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.collection-fashion .alt-search .input-group-text {
+  border-right: 0;
+}
+.collection-fashion .alt-search .form-control {
+  border-left: 0;
+}
+
+.collection-fashion .alt-chip {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(231, 194, 125, 0.12);
+  border: 1px solid rgba(231, 194, 125, 0.26);
+  color: rgba(120, 75, 0, 0.92);
+}
+
+.collection-fashion .alt-section-kicker {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(17, 24, 39, 0.04);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  color: rgba(17, 24, 39, 0.75);
+}
+
+#collectionGrid > [class*="col"] {
+  display: flex;
+}
+
+#collectionGrid .collection-card,
+#collectionGrid .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #eee;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow:
+    0 6px 32px 0 rgba(0, 0, 0, 0.13),
+    0 2px 8px 0 rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow 0.22s,
+    transform 0.18s;
+  min-height: 420px;
+}
+
+#collectionGrid .collection-card:hover,
+#collectionGrid .card:hover {
+  box-shadow:
+    0 14px 44px 0 rgba(0, 0, 0, 0.2),
+    0 2px 12px 0 rgba(0, 0, 0, 0.08);
+  transform: translateY(-6px) scale(1.012);
+}
+
+#collectionGrid img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#collectionGrid .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 170px;
+  padding: 18px 18px 0 18px;
+}
+
+#collectionGrid .card-text {
+  flex: 1 1 auto;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #23272a;
+}
+
+#collectionGrid .d-flex.gap-2.flex-wrap {
+  margin-top: 18px;
+  margin-bottom: 16px !important;
+  gap: 12px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#collectionGrid .btn {
+  white-space: nowrap;
+  min-width: 128px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 12px rgba(17, 24, 39, 0.04);
+  transition:
+    box-shadow 0.15s,
+    background 0.15s;
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#collectionGrid .btn-dark {
+  background-color: #23272a;
+  color: #fff;
+  border: none;
+}
+
+#collectionGrid .btn-dark:hover {
+  background: #e7c27d !important;
+  color: #111827 !important;
+  box-shadow: 0 4px 16px rgba(231, 194, 125, 0.18);
+}
+
+#collectionGrid .btn-outline-dark {
+  border: 1.5px solid #23272a;
+  color: #23272a;
+  background: #fff;
+}
+
+#collectionGrid .btn-outline-dark:hover {
+  background: #f6f5f2;
+  color: #e7c27d;
+  border-color: #e7c27d;
+}
+
+#collectionGrid .card-footer,
+#collectionGrid .d-flex.gap-2.flex-wrap {
+  margin-top: auto !important;
+  position: relative;
+  background: transparent;
+  width: 100%;
+}
+
+#collectionGrid .badge,
+#collectionGrid .alt-chip {
+  box-shadow: 0 2px 8px rgba(231, 194, 125, 0.12);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+#collectionGrid .badge {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.collection-fashion .alt-tip {
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  background: #fff !important;
+}
+
+.collection-fashion .alt-cta {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(135deg, #0b0f19 0%, #111827 55%, #1f2937 100%);
+}
+
+.collection-fashion .btn-warning {
+  background-color: #e7c27d !important;
+  border-color: #e7c27d !important;
+  color: #111827 !important;
+}
+
+.collection-fashion .btn-warning:hover {
+  filter: brightness(0.96);
+}
+
+.wish-btn.active {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #fff !important;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}

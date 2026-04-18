@@ -1,0 +1,336 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: #333;
+  background: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background: #212529;
+}
+
+.brand-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition:
+    transform 0.2s linear,
+    color 0.2s linear;
+}
+
+.brand-logo:hover {
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 600;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  transition: color 0.2s linear;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  height: 2px;
+  width: 0;
+  background: #ffffff;
+  transition: width 0.25s linear;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #ffffff;
+}
+
+.navbar-nav .dropdown-toggle::after {
+  width: auto;
+  height: auto;
+  background: none;
+  transition: none;
+  position: static;
+}
+
+.navbar-nav .dropdown-toggle:hover::after {
+  width: auto;
+}
+
+.dropdown-menu {
+  border: 1px solid #e9ecef;
+  padding: 6px;
+  background: #ffffff;
+  transition: box-shadow 0.2s linear;
+}
+
+.dropdown-menu:hover {
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+.dropdown-item {
+  padding: 8px 12px;
+  color: #212529;
+  transition:
+    background-color 0.2s linear,
+    padding-left 0.2s linear;
+}
+
+.dropdown-item:hover {
+  background: #f8f9fa;
+  padding-left: 18px;
+}
+
+.navbar a.text-white {
+  color: #ffffff;
+  transition:
+    color 0.2s linear,
+    transform 0.2s linear;
+  display: inline-block;
+}
+
+.navbar a.text-white:hover {
+  color: #dc3545;
+  transform: translateY(-2px);
+}
+
+.cart-badge {
+  font-size: 0.65rem;
+}
+
+#home {
+  background: #f8f9fa;
+}
+
+.hero-subtitle {
+  letter-spacing: 3px;
+  font-size: 0.875rem;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.hero-desc {
+  max-width: 700px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+#home .btn {
+  transition:
+    background-color 0.2s linear,
+    color 0.2s linear,
+    box-shadow 0.2s linear,
+    transform 0.2s linear;
+}
+
+#home .btn:hover {
+  background: #111417;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
+}
+
+.categories-slider-section {
+  background: #ffffff;
+}
+
+.categories-box {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  transition:
+    box-shadow 0.2s linear,
+    transform 0.2s linear;
+}
+
+.categories-box:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+  transform: translateY(-4px);
+}
+
+.category-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+.category-item {
+  padding: 8px 10px;
+  transition:
+    background-color 0.2s linear,
+    transform 0.2s linear,
+    box-shadow 0.2s linear;
+  border-radius: 8px;
+}
+
+.category-item:hover {
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateX(4px);
+}
+
+.category-item a {
+  color: #495057;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.2s linear;
+}
+
+.category-item a:hover {
+  color: #212529;
+}
+
+.carousel-image {
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.stat-card {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition:
+    transform 0.2s linear,
+    box-shadow 0.2s linear;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.collections-title,
+.products-title,
+.featured-title,
+.sale-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+.cover-img {
+  object-fit: cover;
+}
+
+.cover-500 {
+  min-height: 380px;
+}
+
+.cover-400 {
+  min-height: 320px;
+}
+
+.cover-240 {
+  min-height: 180px;
+}
+
+.overlay-dark-80 {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.overlay-dark-70 {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.product-img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s linear;
+}
+
+.card {
+  border: 1px solid #e9ecef;
+  transition:
+    transform 0.2s linear,
+    box-shadow 0.2s linear,
+    border-color 0.2s linear;
+}
+
+.card:hover {
+  border-color: #d1d7dd;
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+
+.card:hover .product-img {
+  opacity: 0.92;
+}
+
+.nav-pills .nav-link {
+  border: 1px solid #dee2e6;
+  color: #6c757d;
+  background: transparent;
+  transition:
+    background-color 0.2s linear,
+    color 0.2s linear,
+    border-color 0.2s linear,
+    box-shadow 0.2s linear,
+    transform 0.2s linear;
+}
+
+.nav-pills .nav-link:hover {
+  background: #f8f9fa;
+  color: #212529;
+  border-color: #212529;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-pills .nav-link.active {
+  background: #212529;
+  color: #ffffff;
+  border-color: #212529;
+}
+
+footer {
+  background: #212529;
+  color: #ffffff;
+  display: block;
+}
+
+.footer-brand {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+footer a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition:
+    color 0.2s linear,
+    padding-left 0.2s linear;
+}
+
+footer a:hover {
+  color: #ffffff;
+  padding-left: 6px;
+}
+footer .text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+footer a.text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+footer a.text-muted:hover {
+  color: #ffffff !important;
+}
